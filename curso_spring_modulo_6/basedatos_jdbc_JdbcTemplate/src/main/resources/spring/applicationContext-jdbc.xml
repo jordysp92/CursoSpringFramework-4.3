@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- importamos las definicion del dataSource -->
+	<import resource="applicationContext-dataSource.xml" />
+
+	<!-- JdbcTemplate -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- NO es necesario ya que lo hace el component scan con la anotacion: 
+		@Repository("estudianteDao") -->
+	<!-- <bean id="estudianteDao" class="com.bolsadeideas.ejemplos.dao.JdbcEstudianteDao"> 
+		<property name="dataSource" ref="dataSource" /> </bean> -->
+
+	<!-- Scans el classpath de la aplicación, buscar y detecta los estereotipos 
+		@Components, @Repository, @Service, y @Controller y registra los beans en 
+		el contenedor de Spring -->
+	<context:component-scan base-package="com.bolsadeideas.ejemplos.dao" />
+
+	<!-- Instrucción de Spring para activar y manejar el transaction management 
+		de forma automática sobre las clases anotadas con @Repository. -->
+	<tx:annotation-driven />
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- (this dependency is defined somewhere else) -->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+</beans>

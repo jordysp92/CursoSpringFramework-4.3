@@ -1,0 +1,3 @@
+com\bolsadeideas\ejemplos\EjemploController.class
+com\bolsadeideas\ejemplos\LoggingInterceptor.class
+com\bolsadeideas\ejemplos\TiempoTranscurridoInterceptor.class

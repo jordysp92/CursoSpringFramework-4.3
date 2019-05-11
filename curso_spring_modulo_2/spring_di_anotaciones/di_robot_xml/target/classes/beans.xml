@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="brazoD" class="com.bolsadeideas.ejemplos.domain.robot.BrazoImpl">
+		<property name="tipo" value="derecho" />
+	</bean>
+
+	<bean id="brazoI" class="com.bolsadeideas.ejemplos.domain.robot.BrazoImpl">
+		<property name="tipo" value="izquierdo" />
+	</bean>
+
+	<bean id="piernaD" class="com.bolsadeideas.ejemplos.domain.robot.PiernaImpl">
+		<property name="tipo" value="derecha" />
+	</bean>
+
+	<bean id="piernaI" class="com.bolsadeideas.ejemplos.domain.robot.PiernaImpl">
+		<property name="tipo" value="izquierda" />
+	</bean>
+
+	<bean id="cabeza" class="com.bolsadeideas.ejemplos.domain.robot.CabezaImpl" />
+
+	<bean id="robot" class="com.bolsadeideas.ejemplos.domain.robot.RobotImpl">
+		<property name="brazoD" ref="brazoD" />
+		<property name="brazoI" ref="brazoI" />
+		<property name="piernaD" ref="piernaD" />
+		<property name="piernaI" ref="piernaI" />
+		<property name="cabeza" ref="cabeza" />
+	</bean>
+
+
+</beans>

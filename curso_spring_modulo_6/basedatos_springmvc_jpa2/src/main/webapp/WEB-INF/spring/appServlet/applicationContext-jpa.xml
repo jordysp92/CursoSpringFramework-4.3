@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- ========================= DEFINICION HIBERNATE ========================= -->
+
+	<!-- importamos las definicion del dataSource -->
+	<import resource="applicationContext-dataSource.xml" />
+
+	<!-- Configuracion que reemplaza los placeholders ${...} placeholders con 
+		los valores del archivo properties -->
+	<!-- (En este caso, los datos relacionados a la conexion JDBC para el DataSource) -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+
+	<!-- JPA EntityManagerFactory -->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaVendorAdapter">
+			<!-- Use Hibernate como proveedor JPA -->
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
+				p:database="${jpa.database}" p:showSql="${jpa.showSql}" />
+
+			<!-- <bean class="org.springframework.orm.jpa.vendor.OpenJpaVendorAdapter" 
+				p:database="${jpa.database}" p:showSql="${jpa.showSql}"/> -->
+		</property>
+		<property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml" />
+	</bean>
+
+    	<!-- Transaction manager para un solo entityManagerFactory (es una alternativa 
+		a JTA) -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
+		p:entityManagerFactory-ref="entityManagerFactory" />
+
+	<!-- Instrucción de Spring para activar y manejar el transaction management de forma automática 
+		sobre las clases anotadas con @Repository. -->
+	<tx:annotation-driven />
+
+</beans>

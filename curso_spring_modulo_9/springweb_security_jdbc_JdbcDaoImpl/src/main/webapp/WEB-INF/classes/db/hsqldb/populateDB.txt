@@ -1,0 +1,17 @@
+/* Populate tables */
+INSERT INTO users (username, password, enabled) VALUES('aguzman', 'demo', 1);
+INSERT INTO users (username, password, enabled) VALUES('rod', 'demo', 1);
+INSERT INTO users (username, password, enabled) VALUES('bruce', 'demo', 1);
+INSERT INTO users (username, password, enabled) VALUES('james', 'demo', 1);
+INSERT INTO users (username, password, enabled) VALUES('andres', 'demo', 1);
+
+INSERT INTO authorities (username, authority) VALUES('aguzman', 'ROLE_SUPERVISOR');
+INSERT INTO authorities (username, authority) VALUES('aguzman', 'ROLE_USER');
+INSERT INTO authorities (username, authority) VALUES('aguzman', 'ROLE_TELLER');
+INSERT INTO authorities (username, authority) VALUES('rod', 'ROLE_SUPERVISOR');
+INSERT INTO authorities (username, authority) VALUES('rod', 'ROLE_USER');
+INSERT INTO authorities (username, authority) VALUES('rod', 'ROLE_TELLER');
+INSERT INTO authorities (username, authority) VALUES('bruce', 'ROLE_USER');
+INSERT INTO authorities (username, authority) VALUES('bruce', 'ROLE_TELLER');
+INSERT INTO authorities (username, authority) VALUES('james', 'ROLE_USER');
+INSERT INTO authorities (username, authority) VALUES('andres', 'ROLE_USER');

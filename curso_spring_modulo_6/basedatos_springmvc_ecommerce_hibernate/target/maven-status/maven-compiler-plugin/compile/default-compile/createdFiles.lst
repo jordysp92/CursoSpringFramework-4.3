@@ -1,0 +1,10 @@
+com\bolsadeideas\ejemplos\dominio\carro\ItemCarro.class
+com\bolsadeideas\ejemplos\models\services\IProductoService.class
+com\bolsadeideas\ejemplos\models\dao\ProductoDao.class
+com\bolsadeideas\ejemplos\models\services\ProductoServiceImpl.class
+com\bolsadeideas\ejemplos\controllers\CarroController.class
+com\bolsadeideas\ejemplos\controllers\ProductoController.class
+com\bolsadeideas\ejemplos\dominio\carro\ICarro.class
+com\bolsadeideas\ejemplos\models\dao\IProductoDao.class
+com\bolsadeideas\ejemplos\dominio\carro\Carro.class
+com\bolsadeideas\ejemplos\models\entity\Producto.class

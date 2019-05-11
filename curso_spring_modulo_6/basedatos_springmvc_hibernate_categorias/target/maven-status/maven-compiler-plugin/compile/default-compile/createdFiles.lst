@@ -1,0 +1,10 @@
+com\bolsadeideas\ejemplos\models\dao\ICategoriaDao.class
+com\bolsadeideas\ejemplos\models\services\IProductoService.class
+com\bolsadeideas\ejemplos\controllers\CategoriaPropertyEditor.class
+com\bolsadeideas\ejemplos\models\dao\ProductoDao.class
+com\bolsadeideas\ejemplos\models\services\ProductoServiceImpl.class
+com\bolsadeideas\ejemplos\models\dao\CategoriaDao.class
+com\bolsadeideas\ejemplos\models\entity\Categoria.class
+com\bolsadeideas\ejemplos\controllers\ProductoController.class
+com\bolsadeideas\ejemplos\models\dao\IProductoDao.class
+com\bolsadeideas\ejemplos\models\entity\Producto.class

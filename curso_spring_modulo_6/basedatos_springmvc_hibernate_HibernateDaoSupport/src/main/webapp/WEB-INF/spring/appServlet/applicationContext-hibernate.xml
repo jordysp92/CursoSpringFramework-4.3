@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- ========================= DEFINICION HIBERNATE ========================= -->
+
+	<!-- importamos las definicion del dataSource -->
+	<import resource="applicationContext-dataSource.xml" />
+
+	<!-- Configuracion que reemplaza los placeholders ${...} placeholders con 
+		los valores del archivo properties -->
+	<!-- (En este caso, los datos relacionados a la conexion JDBC para el DataSource) -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+
+	<!-- Hibernate SessionFactory, para anotaciones en las clases entity usamos 
+		AnnotationSessionFactoryBean -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.bolsadeideas.ejemplos.models.entity.Producto</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.generate_statistics">${hibernate.generate_statistics}</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="productoDao" class="com.bolsadeideas.ejemplos.models.dao.ProductoDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="productoServiceImpl"
+		class="com.bolsadeideas.ejemplos.models.services.ProductoServiceImpl">
+		<property name="productoDao" ref="productoDao" />
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager"
+		p:sessionFactory-ref="sessionFactory" />
+
+	<tx:annotation-driven />
+
+</beans>

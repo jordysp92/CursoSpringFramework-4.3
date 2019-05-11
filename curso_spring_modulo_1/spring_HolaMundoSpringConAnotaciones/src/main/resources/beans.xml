@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans   
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Habilitamos el uso de anotaciones. -->
+	<context:annotation-config />
+
+	<!-- Tenga en cuenta que no se define la propiedad proveedorMensaje en el 
+		bean render. Es debido a que la referencia se especifica a través anotación 
+		@Autowired -->
+	<bean id="renderer" class="com.bolsadeideas.ejemplos.ImprimeMensajeImpl">
+	</bean>
+
+	<bean id="proveedor" class="com.bolsadeideas.ejemplos.ConfigurableProveedorMensaje">
+		<constructor-arg>
+			<value>Este es un mensaje configurable</value>
+		</constructor-arg>
+	</bean>
+</beans>

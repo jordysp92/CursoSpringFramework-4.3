@@ -1,0 +1,9 @@
+com\bolsadeideas\ejemplo\banco\entity\Banco.class
+com\bolsadeideas\ejemplo\banco\dao\HibernateBancoDao.class
+com\bolsadeideas\ejemplo\banco\dao\HibernateCuentaDao.class
+com\bolsadeideas\ejemplo\banco\entity\Cuenta.class
+com\bolsadeideas\ejemplo\banco\Main.class
+com\bolsadeideas\ejemplo\banco\services\CuentaService.class
+com\bolsadeideas\ejemplo\banco\dao\CuentaDao.class
+com\bolsadeideas\ejemplo\banco\services\CuentaServiceImpl.class
+com\bolsadeideas\ejemplo\banco\dao\BancoDao.class

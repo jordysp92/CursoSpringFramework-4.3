@@ -1,0 +1,7 @@
+com\bolsadeideas\ejemplos\models\dao\ProductoDaoSessionFactory.class
+com\bolsadeideas\ejemplos\models\services\IProductoService.class
+com\bolsadeideas\ejemplos\models\dao\ProductoDaoHibernateTemplate.class
+com\bolsadeideas\ejemplos\models\services\ProductoServiceImpl.class
+com\bolsadeideas\ejemplos\controllers\ProductoController.class
+com\bolsadeideas\ejemplos\models\dao\IProductoDao.class
+com\bolsadeideas\ejemplos\models\entity\Producto.class

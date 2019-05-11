@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- inyectamos valores a atributos del bean persona -->
+	<bean id="persona" class="com.bolsadeideas.ejemplos.Persona">
+		<property name="nombre">
+			<value>Bruce Lee</value>
+		</property>
+		<property name="edad">
+			<value>33</value>
+		</property>
+		<property name="peso">
+			<value>1.99</value>
+		</property>
+		<property name="programador">
+			<value>false</value>
+		</property>
+	</bean>
+
+</beans>

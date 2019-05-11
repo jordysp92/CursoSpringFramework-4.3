@@ -1,0 +1,16 @@
+<!DOCTYPE hibernate-mapping
+        PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.bolsadeideas.ejemplos.entity">
+	<class name="Estudiante" table="ESTUDIANTE">
+		<id name="id" type="int" column="ID">
+			<generator class="identity" />
+		</id>
+		<property name="nombre" type="string">
+			<column name="NOMBRE" length="20" not-null="true" />
+		</property>
+		<property name="fechaNacimiento" type="date" column="FECHA_NACIMIENTO" />
+		<property name="promedio" type="int" column="PROMEDIO" />
+	</class>
+</hibernate-mapping>

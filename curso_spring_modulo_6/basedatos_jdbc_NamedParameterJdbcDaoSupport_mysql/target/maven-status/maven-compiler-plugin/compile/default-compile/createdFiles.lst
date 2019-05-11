@@ -1,0 +1,4 @@
+com\bolsadeideas\ejemplos\dao\JdbcEstudianteDao.class
+com\bolsadeideas\ejemplos\Main.class
+com\bolsadeideas\ejemplos\dao\EstudianteDao.class
+com\bolsadeideas\ejemplos\entity\Estudiante.class

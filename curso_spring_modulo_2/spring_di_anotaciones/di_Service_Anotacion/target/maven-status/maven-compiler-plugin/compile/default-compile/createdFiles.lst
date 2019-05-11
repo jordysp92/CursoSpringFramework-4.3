@@ -1,0 +1,5 @@
+com\bolsadeideas\ejemplos\dao\ClienteDaoImpl.class
+com\bolsadeideas\ejemplos\dao\ClienteDao.class
+com\bolsadeideas\ejemplos\services\ClienteServiceImpl.class
+com\bolsadeideas\ejemplos\Main.class
+com\bolsadeideas\ejemplos\services\ClienteService.class
